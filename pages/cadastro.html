@@ -1,0 +1,100 @@
+<!-- ══════════════════════════════════
+     TELA 1: CADASTRO DO JOGADOR
+══════════════════════════════════ -->
+<div class="screen active" id="s-cadastro">
+  <div class="hero-banner">
+    <div class="hero-tag">⬡ Arena BattleFrame · São Paulo</div>
+    <div class="hero-title">Pronto para<br>jogar?</div>
+    <div class="hero-sub">Cadastre-se para receber seus melhores momentos em vídeo.</div>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Seus dados</div>
+            <div class="card-sub">Preencha para identificação</div>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Nome completo</label>
+          <input class="input-field" id="reg-nome" type="text" placeholder="Ex: João Eduardo Freitas" value="João Eduardo Freitas">
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">WhatsApp (receberá o vídeo aqui)</label>
+          <input class="input-field" id="reg-phone" type="text" placeholder="(11) 99999-9999" value="(11) 98765-4321">
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">E-mail (opcional)</label>
+          <input class="input-field" type="email" placeholder="seu@email.com">
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Número do colete <span style="color:var(--accent)">*</span></label>
+          <input class="input-field" id="reg-colete" type="number" min="1" max="40" placeholder="Ex: 07" value="7">
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Escolha seu time</label>
+          <div class="team-select">
+            <button class="team-btn selected-blue" id="btn-blue" onclick="selectTeam('blue')">🔵 Time Azul</button>
+            <button class="team-btn" id="btn-red" onclick="selectTeam('red')">🔴 Time Vermelho</button>
+          </div>
+        </div>
+
+        <button class="btn btn-accent btn-full" onclick="confirmarCadastro()">
+          ✓ Confirmar cadastro e entrar
+        </button>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-title" style="margin-bottom:1rem">Próximas partidas</div>
+        <div class="player-row">
+          <div style="flex:1">
+            <div style="font-size:13px;font-weight:500">Partida #12</div>
+            <div style="font-size:11px;color:var(--text3);margin-top:2px">Começa em 8 min · 34 cadastrados</div>
+          </div>
+          <span class="badge badge-amber">Em breve</span>
+        </div>
+        <div class="player-row">
+          <div style="flex:1">
+            <div style="font-size:13px;font-weight:500">Partida #13</div>
+            <div style="font-size:11px;color:var(--text3);margin-top:2px">Previsão 14h30 · 12 cadastrados</div>
+          </div>
+          <span class="badge badge-gray">Aberta</span>
+        </div>
+        <div class="player-row" style="border:none">
+          <div style="flex:1">
+            <div style="font-size:13px;font-weight:500">Partida #14</div>
+            <div style="font-size:11px;color:var(--text3);margin-top:2px">Previsão 16h00 · 3 cadastrados</div>
+          </div>
+          <span class="badge badge-gray">Aberta</span>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1rem">
+        <div class="card-title" style="margin-bottom:.75rem">Como funciona?</div>
+        <div style="display:flex;flex-direction:column;gap:.875rem">
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <div style="width:28px;height:28px;border-radius:50%;background:rgba(232,255,60,0.1);border:1px solid rgba(232,255,60,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--accent);flex-shrink:0">1</div>
+            <div><div style="font-size:13px;font-weight:500">Cadastre-se</div><div style="font-size:12px;color:var(--text3)">Informe seu número de colete</div></div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <div style="width:28px;height:28px;border-radius:50%;background:rgba(232,255,60,0.1);border:1px solid rgba(232,255,60,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--accent);flex-shrink:0">2</div>
+            <div><div style="font-size:13px;font-weight:500">Jogue!</div><div style="font-size:12px;color:var(--text3)">Câmeras capturam tudo automaticamente</div></div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <div style="width:28px;height:28px;border-radius:50%;background:rgba(232,255,60,0.1);border:1px solid rgba(232,255,60,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--accent);flex-shrink:0">3</div>
+            <div><div style="font-size:13px;font-weight:500">Escolha e compre</div><div style="font-size:12px;color:var(--text3)">Seus melhores clipes, entregues em minutos</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

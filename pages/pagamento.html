@@ -1,0 +1,78 @@
+<!-- ══════════════════════════════════
+     TELA 4: PAGAMENTO
+══════════════════════════════════ -->
+<div class="screen" id="s-pagamento">
+  <div class="grid2">
+    <div>
+      <div class="card">
+        <div class="card-title" style="margin-bottom:1.25rem">🧾 Resumo do pedido</div>
+        <div id="cart-list">
+          <div style="font-size:13px;color:var(--text3);text-align:center;padding:1rem 0">Nenhum vídeo selecionado ainda.</div>
+        </div>
+        <hr class="divider">
+        <div class="checkout-row total">
+          <span>Total</span>
+          <span id="cart-total" style="color:var(--accent)">R$ 0,00</span>
+        </div>
+        <div class="alert-success" style="margin-top:1rem">
+          <span>⚡</span>
+          <span>Entrega em até 5 min no WhatsApp após pagamento.</span>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1rem">
+        <div class="card-title" style="margin-bottom:1rem">💳 Forma de pagamento</div>
+        <div class="pay-option selected" id="pay-pix" onclick="selectPay('pix')">
+          <input type="radio" name="pay" checked>
+          <div style="flex:1">
+            <div style="font-size:13px;font-weight:600">Pix</div>
+            <div style="font-size:11px;color:var(--text3)">Confirmação instantânea</div>
+          </div>
+          <span class="badge badge-green">Instantâneo</span>
+        </div>
+        <div class="pay-option" id="pay-card" onclick="selectPay('card')">
+          <input type="radio" name="pay">
+          <div style="flex:1">
+            <div style="font-size:13px;font-weight:600">Cartão de crédito</div>
+            <div style="font-size:11px;color:var(--text3)">Visa, Master, Elo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card" id="pix-panel">
+        <div class="card-title" style="margin-bottom:1rem;text-align:center">Pague com Pix</div>
+        <div class="qr-box"><div class="qr-pattern"></div></div>
+        <div style="text-align:center;font-size:12px;color:var(--text2);margin-bottom:.75rem">Aponte a câmera do celular para o QR Code</div>
+        <button class="btn btn-full" onclick="showToast('📋', 'Código Pix copiado!')">📋 Copiar código Pix</button>
+        <hr class="divider">
+        <button class="btn btn-accent btn-full" onclick="pagarAgora()">✓ Confirmar pagamento</button>
+        <div style="text-align:center;font-size:11px;color:var(--text3);margin-top:.75rem">🔒 Pagamento seguro · Powered by Stripe</div>
+      </div>
+
+      <div class="card" id="card-panel" style="display:none">
+        <div class="card-title" style="margin-bottom:1rem">Dados do cartão</div>
+        <div class="input-group">
+          <label class="input-label">Número do cartão</label>
+          <input class="input-field" type="text" placeholder="0000 0000 0000 0000" maxlength="19" oninput="formatCard(this)">
+        </div>
+        <div class="grid2">
+          <div class="input-group">
+            <label class="input-label">Validade</label>
+            <input class="input-field" type="text" placeholder="MM/AA" maxlength="5">
+          </div>
+          <div class="input-group">
+            <label class="input-label">CVV</label>
+            <input class="input-field" type="text" placeholder="123" maxlength="4">
+          </div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Nome no cartão</label>
+          <input class="input-field" type="text" placeholder="NOME SOBRENOME">
+        </div>
+        <button class="btn btn-accent btn-full" onclick="pagarAgora()">✓ Pagar agora</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,141 @@
+<!-- ══════════════════════════════════
+     TELA 5: PAINEL DO OPERADOR
+══════════════════════════════════ -->
+<div class="screen" id="s-operador">
+  <div class="alert-bar" id="alert-cam3">
+    <span>⚠️</span>
+    <div style="flex:1">Câmera 3 com sinal instável. Verifique a conexão no campo.</div>
+    <button class="btn btn-sm btn-danger" onclick="resolverAlerta()">Resolver</button>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem">
+    <div class="card-header">
+      <div>
+        <div class="card-title">🎯 Partida #12 · Em andamento</div>
+        <div class="card-sub">Iniciada às 13:02 · Arena Leste</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-sm" onclick="showModal('modal-modo')">⚙️ Modo manual</button>
+        <button class="btn btn-sm" onclick="showModal('modal-pause')">⏸ Pausar</button>
+        <button class="btn btn-sm btn-danger" onclick="showModal('modal-stop')">⏹ Encerrar partida</button>
+      </div>
+    </div>
+    <div class="grid4">
+      <div class="metric-card">
+        <div class="metric-val">34</div>
+        <div class="metric-lbl">Jogadores</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val" style="color:var(--amber)">4/5</div>
+        <div class="metric-lbl">Câmeras OK</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val" id="op-timer">23:41</div>
+        <div class="metric-lbl">Restante</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val" style="color:var(--green)">72%</div>
+        <div class="metric-lbl">Processado</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem">
+    <div class="card-title" style="margin-bottom:1rem">📷 Câmeras</div>
+    <div class="grid3">
+      <div class="cam-card">
+        <div class="cam-preview">
+          <div class="cam-live-dot">AO VIVO</div>
+          📹
+        </div>
+        <div class="cam-info">
+          <div class="cam-name">Câmera 1 · Entrada</div>
+          <span class="badge badge-green" style="font-size:10px">● Online</span>
+        </div>
+      </div>
+      <div class="cam-card">
+        <div class="cam-preview">
+          <div class="cam-live-dot">AO VIVO</div>
+          📹
+        </div>
+        <div class="cam-info">
+          <div class="cam-name">Câmera 2 · Centro</div>
+          <span class="badge badge-green" style="font-size:10px">● Online</span>
+        </div>
+      </div>
+      <div class="cam-card" style="border-color:rgba(255,184,60,0.3)">
+        <div class="cam-preview error">
+          ⚠️
+        </div>
+        <div class="cam-info">
+          <div class="cam-name">Câmera 3 · Flanco</div>
+          <span class="badge badge-amber" style="font-size:10px">⚡ Instável</span>
+        </div>
+      </div>
+      <div class="cam-card">
+        <div class="cam-preview">
+          <div class="cam-live-dot">AO VIVO</div>
+          📹
+        </div>
+        <div class="cam-info">
+          <div class="cam-name">Câmera 4 · Base A</div>
+          <span class="badge badge-green" style="font-size:10px">● Online</span>
+        </div>
+      </div>
+      <div class="cam-card">
+        <div class="cam-preview">
+          <div class="cam-live-dot">AO VIVO</div>
+          📹
+        </div>
+        <div class="cam-info">
+          <div class="cam-name">Câmera 5 · Base B</div>
+          <span class="badge badge-green" style="font-size:10px">● Online</span>
+        </div>
+      </div>
+      <div class="cam-card" style="border-style:dashed;cursor:pointer" onclick="showToast('📷', 'Adicione uma nova câmera na aba Configurações.')">
+        <div class="cam-preview" style="background:transparent;flex-direction:column;gap:4px;font-size:13px;color:var(--text3)">
+          <span style="font-size:24px">+</span>
+          Adicionar câmera
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:1.25rem">🤖 Pipeline de processamento</div>
+    <div style="display:flex;flex-direction:column;gap:1rem">
+      <div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px">
+          <span>Captura e conversão (4K → H.265)</span>
+          <span class="badge badge-green">✓ Concluído · 312 GB</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill done" style="width:100%"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px">
+          <span>Identificação de jogadores (IA · YOLOv8)</span>
+          <span class="badge badge-blue">72% · 24/34 jogadores</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width:72%"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px">
+          <span>Detecção de highlights</span>
+          <span class="badge badge-gray">Aguardando</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill pending" style="width:0%"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px">
+          <span>Edição automática e entrega via WhatsApp</span>
+          <span class="badge badge-gray">Aguardando</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill pending" style="width:0%"></div></div>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:1.25rem;flex-wrap:wrap">
+      <button class="btn" onclick="showModal('modal-modo')">🔧 Modo manual</button>
+      <button class="btn btn-danger" onclick="showModal('modal-emergencia')">🚨 Emergência</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<!-- ══════════════════════════════════
+     TELA 6: JOGADORES (OPERADOR)
+══════════════════════════════════ -->
+<div class="screen" id="s-jogadores">
+  <div class="card" style="margin-bottom:1rem">
+    <div class="card-header">
+      <div>
+        <div class="card-title">👥 Jogadores cadastrados · Partida #12</div>
+        <div class="card-sub">34 jogadores · 17 azul · 17 vermelho</div>
+      </div>
+      <button class="btn btn-accent btn-sm" onclick="showModal('modal-add-player')">+ Adicionar</button>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1rem" id="filter-btns">
+      <button class="btn btn-sm" onclick="filterPlayers('all', this)" style="background:var(--surface3);border-color:rgba(255,255,255,0.2);color:var(--text)">Todos (34)</button>
+      <button class="btn btn-sm" onclick="filterPlayers('blue', this)">Time Azul (17)</button>
+      <button class="btn btn-sm" onclick="filterPlayers('red', this)">Time Vermelho (17)</button>
+      <button class="btn btn-sm" onclick="filterPlayers('error', this)">Com erro</button>
+    </div>
+    <div id="players-list"></div>
+  </div>
+</div>

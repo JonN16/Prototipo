@@ -1,0 +1,89 @@
+<!-- ══════════════════════════════════
+     TELA 3: MEUS VÍDEOS
+══════════════════════════════════ -->
+<div class="screen" id="s-videos">
+  <div class="card" style="margin-bottom:1rem">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+      <div>
+        <div class="card-title">🎬 Seus clipes · Partida #12</div>
+        <div class="card-sub">Selecione os vídeos que deseja comprar</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span id="cart-badge" class="badge badge-accent" style="display:none">0 selecionados</span>
+        <button class="btn btn-accent btn-sm" onclick="goTo('s-pagamento', document.querySelectorAll('.nav-item')[3])">
+          Ver carrinho →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="tab-row" id="videos-tabs">
+      <button class="tab active-tab" onclick="setVideoTab(0, this)">Meus clipes (6)</button>
+      <button class="tab" onclick="setVideoTab(1, this)">Time Azul (3)</button>
+      <button class="tab" onclick="setVideoTab(2, this)">Partida completa (1)</button>
+    </div>
+
+    <div id="vtab-0">
+      <div class="video-grid" id="video-grid">
+        <!-- gerado via JS -->
+      </div>
+    </div>
+    <div id="vtab-1" style="display:none">
+      <div class="video-grid">
+        <div class="video-card" onclick="toggleVideo(this, 'time-1', 9.9)">
+          <div class="video-thumb">
+            <div class="video-play">▶</div>
+            <div class="video-tag">1:02 · Multi-câm</div>
+            <div class="video-sel-check">✓</div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Highlight do Time Azul</div>
+            <div class="video-price">R$ 9,90</div>
+          </div>
+        </div>
+        <div class="video-card" onclick="toggleVideo(this, 'time-2', 4.9)">
+          <div class="video-thumb">
+            <div class="video-play">▶</div>
+            <div class="video-tag">0:38 · Câmera 1</div>
+            <div class="video-sel-check">✓</div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Tomada de bandeira</div>
+            <div class="video-price">R$ 4,90</div>
+          </div>
+        </div>
+        <div class="video-card" onclick="toggleVideo(this, 'time-3', 4.9)">
+          <div class="video-thumb">
+            <div class="video-play">▶</div>
+            <div class="video-tag">0:22 · Câmera 2</div>
+            <div class="video-sel-check">✓</div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Grito de vitória</div>
+            <div class="video-price">R$ 4,90</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="vtab-2" style="display:none">
+      <div class="video-grid">
+        <div class="video-card" style="grid-column:1/-1" onclick="toggleVideo(this, 'full-1', 29.9)">
+          <div class="video-thumb" style="height:160px">
+            <div class="video-play">▶</div>
+            <div class="video-tag">38:14 · Partida completa · 4K</div>
+            <div class="video-sel-check">✓</div>
+          </div>
+          <div class="video-info" style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div class="video-title">Partida completa #12 — Todas as câmeras</div>
+              <div style="font-size:11px;color:var(--text3);margin-top:2px">MP4 4K · Acesso vitalício</div>
+            </div>
+            <div class="video-price">R$ 29,90</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

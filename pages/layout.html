@@ -1,0 +1,147 @@
+<!-- ─── SIDEBAR ─── -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-mark">⬡ BattleFrame</div>
+    <div class="logo-sub">Arena Media System · 2026</div>
+  </div>
+
+  <div class="sidebar-section">Jogador</div>
+  <button class="nav-item active" onclick="goTo('s-cadastro', this)">
+    <span class="nav-icon">👤</span> Cadastro
+  </button>
+  <button class="nav-item" onclick="goTo('s-partida', this)">
+    <span class="nav-icon">🎯</span> Partida ao vivo
+    <span class="nav-badge badge-live">AO VIVO</span>
+  </button>
+  <button class="nav-item" onclick="goTo('s-videos', this)">
+    <span class="nav-icon">🎬</span> Meus vídeos
+    <span class="nav-badge badge-accent" id="sel-count" style="display:none">0</span>
+  </button>
+  <button class="nav-item" onclick="goTo('s-pagamento', this)">
+    <span class="nav-icon">💳</span> Pagamento
+  </button>
+
+  <div class="sidebar-section" style="margin-top:.5rem">Operador</div>
+  <button class="nav-item" onclick="goTo('s-operador', this)">
+    <span class="nav-icon">🖥️</span> Painel de controle
+  </button>
+  <button class="nav-item" onclick="goTo('s-jogadores', this)">
+    <span class="nav-icon">👥</span> Jogadores
+  </button>
+
+  <div class="sidebar-footer">
+    <div class="user-pill">
+      <div class="user-avatar">JE</div>
+      <div>
+        <div class="user-name">João Eduardo</div>
+        <div class="user-role">Colete #07 · Time Azul</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- ─── TOPBAR ─── -->
+<div class="topbar">
+  <div style="display:flex;align-items:center;gap:12px">
+    <button class="btn btn-sm" onclick="document.getElementById('sidebar').classList.toggle('open')" style="display:none" id="menu-btn">☰</button>
+    <div class="topbar-title" id="page-title">Cadastro do Jogador</div>
+  </div>
+  <div class="topbar-actions">
+    <span class="badge badge-red" style="gap:5px">
+      <span style="width:6px;height:6px;border-radius:50%;background:var(--red-team);animation:pulse 1.5s infinite;display:inline-block"></span>
+      Partida #12 · 23:41 restantes
+    </span>
+    <button class="btn btn-sm" onclick="showToast('🔔', 'Notificações ativadas no WhatsApp!')">🔔</button>
+  </div>
+</div>
+
+<!-- ─── TOAST ─── -->
+<div class="toast" id="toast">
+  <span class="toast-icon" id="toast-icon">✓</span>
+  <span id="toast-msg">Mensagem</span>
+</div>
+
+<!-- ─── MODALS ─── -->
+<div class="modal-overlay" id="modal-emergencia" onclick="closeModal('modal-emergencia')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-title">🚨 Emergência</div>
+    <div class="modal-sub">Use este modo para resolver travamentos de identificação ou processamento de vídeo manualmente.</div>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:1.25rem">
+      <button class="btn btn-full" onclick="showToast('🔄','Identificação reiniciada!');closeModal('modal-emergencia')">🔄 Reiniciar identificação do jogador</button>
+      <button class="btn btn-full" onclick="showToast('⏭','Processamento pulado!');closeModal('modal-emergencia')">⏭ Pular para próxima etapa</button>
+      <button class="btn btn-full btn-danger" onclick="showToast('🛑','Sistema reiniciado!');closeModal('modal-emergencia')">🛑 Reiniciar sistema completo</button>
+    </div>
+    <button class="btn btn-full" onclick="closeModal('modal-emergencia')">Cancelar</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-stop" onclick="closeModal('modal-stop')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-title">⏹ Encerrar partida?</div>
+    <div class="modal-sub">Esta ação vai encerrar a gravação e iniciar o processamento dos vídeos. Não pode ser desfeita.</div>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-full" onclick="closeModal('modal-stop')">Cancelar</button>
+      <button class="btn btn-full btn-danger" onclick="encerrarPartida()">Confirmar encerramento</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-pause" onclick="closeModal('modal-pause')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-title">⏸ Pausar partida?</div>
+    <div class="modal-sub">A gravação será pausada temporariamente. O cronômetro para.</div>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-full" onclick="closeModal('modal-pause')">Cancelar</button>
+      <button class="btn btn-full btn-accent" onclick="showToast('⏸','Partida pausada!');closeModal('modal-pause')">Confirmar pausa</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-modo" onclick="closeModal('modal-modo')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-title">⚙️ Modo manual</div>
+    <div class="modal-sub">Controle individual de cada etapa do pipeline.</div>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:1.25rem">
+      <button class="btn btn-full" onclick="showToast('📥','Captura forçada iniciada!');closeModal('modal-modo')">📥 Forçar captura agora</button>
+      <button class="btn btn-full" onclick="showToast('🤖','IA reiniciada!');closeModal('modal-modo')">🤖 Reiniciar identificação (IA)</button>
+      <button class="btn btn-full" onclick="showToast('🎬','Edição iniciada manualmente!');closeModal('modal-modo')">🎬 Iniciar edição manualmente</button>
+      <button class="btn btn-full" onclick="showToast('📲','Entrega manual iniciada!');closeModal('modal-modo')">📲 Enviar vídeos manualmente</button>
+    </div>
+    <button class="btn btn-full" onclick="closeModal('modal-modo')">Fechar</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-add-player" onclick="closeModal('modal-add-player')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-title">+ Adicionar jogador</div>
+    <div class="modal-sub">Cadastre um novo participante manualmente.</div>
+    <div class="input-group">
+      <label class="input-label">Nome</label>
+      <input class="input-field" id="new-player-name" type="text" placeholder="Nome do jogador">
+    </div>
+    <div class="input-group">
+      <label class="input-label">Número do colete</label>
+      <input class="input-field" id="new-player-num" type="number" placeholder="01–40">
+    </div>
+    <div class="input-group">
+      <label class="input-label">Time</label>
+      <select class="input-field" id="new-player-team">
+        <option value="blue">Time Azul</option>
+        <option value="red">Time Vermelho</option>
+      </select>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:.5rem">
+      <button class="btn btn-full" onclick="closeModal('modal-add-player')">Cancelar</button>
+      <button class="btn btn-full btn-accent" onclick="addPlayer()">Adicionar</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-pagamento-ok" onclick="closeModal('modal-pagamento-ok')">
+  <div class="modal" onclick="event.stopPropagation()" style="text-align:center">
+    <div style="font-size:48px;margin-bottom:1rem">🎉</div>
+    <div class="modal-title" style="text-align:center">Pagamento confirmado!</div>
+    <div class="modal-sub" style="text-align:center;margin-bottom:1.25rem">Seus vídeos estão sendo processados e serão entregues no seu WhatsApp em até 5 minutos.</div>
+    <button class="btn btn-accent btn-full" onclick="closeModal('modal-pagamento-ok')">✓ Fechar</button>
+  </div>
+</div>

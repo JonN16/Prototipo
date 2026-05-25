@@ -1,0 +1,93 @@
+<!-- ══════════════════════════════════
+     TELA 2: PARTIDA AO VIVO
+══════════════════════════════════ -->
+<div class="screen" id="s-partida">
+  <div class="card" style="margin-bottom:1rem">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+      <div>
+        <div class="hero-tag">Partida #12 · Arena BattleFrame</div>
+        <div class="hero-title" style="font-size:22px">Olá, <span id="display-nome">João</span> 👋</div>
+        <div style="font-size:13px;color:var(--text2);margin-top:4px">Colete <span style="color:var(--accent);font-weight:600">#<span id="display-colete">07</span></span> · <span id="display-time" style="color:var(--blue-team);font-weight:500">Time Azul</span></div>
+      </div>
+      <span class="badge badge-red" style="gap:6px;font-size:12px">
+        <span style="width:7px;height:7px;border-radius:50%;background:var(--red-team);animation:pulse 1.5s infinite;display:inline-block"></span>
+        GRAVANDO
+      </span>
+    </div>
+  </div>
+
+  <div class="grid4" style="margin-bottom:1rem">
+    <div class="metric-card">
+      <div class="metric-val" style="font-size:22px" id="timer-display">23:41</div>
+      <div class="metric-lbl">Tempo restante</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val" style="color:var(--accent)">12</div>
+      <div class="metric-lbl">Aparições</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val">4/5</div>
+      <div class="metric-lbl">Câmeras ativas</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val" style="color:var(--green)">72%</div>
+      <div class="metric-lbl">Processado</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem">
+    <div class="card-title" style="margin-bottom:1.25rem">⚔️ Placar ao vivo</div>
+    <div class="score-board">
+      <div class="score-team">
+        <div class="score-team-name" style="color:var(--blue-team)">Time Azul</div>
+        <div class="score-num" style="color:var(--blue-team)">14</div>
+        <div class="score-sub">eliminações</div>
+      </div>
+      <div class="score-vs">×</div>
+      <div class="score-team">
+        <div class="score-team-name" style="color:var(--red-team)">Time Vermelho</div>
+        <div class="score-num" style="color:var(--red-team)">9</div>
+        <div class="score-sub">eliminações</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:1.25rem">Pipeline de processamento</div>
+    <div style="display:flex;flex-direction:column;gap:1rem">
+      <div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px">
+          <span>📥 Captura e upload (4K → H.265)</span>
+          <span class="badge badge-green" style="font-size:10px">✓ Concluído</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill done" style="width:100%"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px">
+          <span>🤖 Identificação por IA (colete #07)</span>
+          <span class="badge badge-blue" style="font-size:10px">72%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width:72%"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px">
+          <span>🎬 Detecção de highlights</span>
+          <span class="badge badge-gray" style="font-size:10px">Aguardando</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill pending" style="width:0%"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px">
+          <span>📲 Edição automática e entrega</span>
+          <span class="badge badge-gray" style="font-size:10px">Aguardando</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill pending" style="width:0%"></div></div>
+      </div>
+    </div>
+
+    <div class="alert-bar" style="margin-top:1.25rem;margin-bottom:0;background:rgba(232,255,60,0.05);border-color:rgba(232,255,60,0.2);color:var(--accent)">
+      <span>✨</span>
+      <span>Você receberá uma notificação no WhatsApp quando seus vídeos ficarem prontos — em até 5 minutos após o fim da partida.</span>
+    </div>
+  </div>
+</div>
